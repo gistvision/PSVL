@@ -1,4 +1,4 @@
-# PSVL
+# PSVL (Pseudo-Supervised Video Localization)
 
 ICCV 2021 (to appear)
 
