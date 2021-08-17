@@ -1,4 +1,4 @@
-# PSVL (Pseudo-Supervised Video Localization)
+# Zero-shot Natural Language Video Localization (ZSNLVL) by Pseudo-Supervised Video Localization (PSVL)
 
 ICCV 2021 (to appear)
 
