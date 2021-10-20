@@ -1,0 +1,41 @@
+DATASET:
+  BATCH_SIZE: 256
+  DATA_PATH: "/dataset/charades_feats"
+  MAX_LENGTH: 10
+  NAME: Charades
+  NUM_SEGMENT: 128
+  SHOW_TOP_VOCAB: 10
+  TEST_ANNO_PATH: annotations/charades/charades_sta_test_pos_original_simple_sent.json 
+  TRAIN_ANNO_PATH: annotations/charades/charades_train_pseudo_supervision_TEP_PS.json
+  VID_PATH: ''
+EXP_NAME: SimpleModel_twostage_attention
+MODEL:
+  FUSION:
+    CONVBNRELU:
+      KERNEL_SIZE: 3
+      PADDING: 1
+    EMB_DIM: 256
+    NUM_HEAD: 1
+    NUM_LAYERS: 3
+  NONLOCAL:
+    DROPOUT: 0.0
+    NUM_HEAD: 4
+    NUM_LAYERS: 2
+    USE_BIAS: true
+  QUERY:
+    EMB_IDIM: 290
+    EMB_ODIM: 300
+    GRU_HDIM: 256
+  VIDEO:
+    GRU_HDIM: 256
+    IDIM: 1024
+TRAIN:
+  BATCH_SIZE: 256
+  IOU_THRESH:
+  - 0.1
+  - 0.3
+  - 0.5
+  - 0.7
+  LR: 0.0004
+  NUM_EPOCH: 500
+  NUM_WORKERS: 4
