@@ -14,7 +14,6 @@ This repository is implemented base on [PyTorch](http://pytorch.org/) with Anaco
 Refer to below instruction or use **Docker** (dcahn/psvl:latest). </br>
 
 
-
 ### Get the code
 - Clone this repo with git, please use:
 ```bash
@@ -41,6 +40,8 @@ conda activate PSVL
 
 - This [link](https://drive.google.com/file/d/1M2FX2qkEvyked50LSc9Y5r87GBnpohSX/view?usp=sharing) is connected for downloading pre-trained model.
 
+For ActivityNet-Captions, check Activinet-Captions section of this document.
+
 ## Evaluating pre-trained models
 
 If you want to evaluate the pre-trained model, you can use below command.
@@ -58,6 +59,25 @@ To train PSVL, run `train.py` with below command.
 python train.py --model CrossModalityTwostageAttention --config "YOUR CONFIG PATH"
 # Evaluation
 python inference.py --model CrossModalityTwostageAttention --config "YOUR CONFIG PATH" --pre_trained "YOUR MODEL PATH"
+```
+
+## Activinet-Captions
+
+- Go to [this repository](https://github.com/JonghwanMun/LGI4temporalgrounding), and download the video features for ActiviNet-Captions. </br>
+Place the data under `/dataset/lgi_video_feature/anet_feats`. </br>
+
+- Other data can be downloaded from [this link](https://drive.google.com/file/d/1yXnVHslpV51zqd9TRJAjFXPZZESCFrPm/view?usp=sharing).
+
+Please download the file, unzip it, and type followings to train/inference with the data.
+
+To train the model, please run:
+```bash
+python train.py --model CrossModalityTwostageAttention --config configs/anet_simple_model/simplemodel_anet_BS256_two-stage_attention.yml --dataset anet
+```
+
+To inference with test set, please run:
+```bash
+python inference.py --model CrossModalityTwostageAttention --config configs/anet_simple_model/simplemodel_anet_BS256_two-stage_attention.yml --pre_trained anet_pretrained_best.pth
 ```
 
 ## Lisence
